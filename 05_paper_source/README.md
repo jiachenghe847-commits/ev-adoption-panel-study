@@ -24,9 +24,9 @@
 - `fig4_heterogeneity.png` — 充电桩密度异质性对比柱状图(HIC vs 非HIC)
 
 ### 脚本
-- `analysis_refresh.py` — 完整可复现脚本（自动通过 wbgapi 拉取WB数据）
+- `analysis_refresh.py` — 完整分析脚本（通过 wbgapi 拉取WB数据，失败时回退本地CSV；收入分组始终在线获取）。可复现性尚未经独立重跑验证
 
-### 原始数据依赖(放同目录即可重跑)
+### 原始数据依赖(放在脚本运行目录;重跑未经验证)
 - `EVDataExplorer2025(4).xlsx`
 - `wb_gdp.csv`(PowerShell拉取,见METHODOLOGY.md)
 - `wb_pop.csv`(同上)
@@ -85,6 +85,8 @@
 具体列表见`panel_final.csv`的`iso3c`列。
 
 ## 如需复现
+
+未验证：仓库不含 IEA 输入文件，脚本未重新运行。建议按根目录 `README.md` 在临时目录运行，避免覆盖已提交结果。
 
 ```bash
 pip install pandas numpy openpyxl wbgapi linearmodels matplotlib
